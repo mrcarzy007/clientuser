@@ -11,8 +11,7 @@ pipeline{
            }
         }
 
-        stage("Docker push to Docker Hub"){
-            echo "This time to push docker hub"
+        stage("Docker push"){
             steps {
                 withCreadentials([usernamePassword(creadentialsId: "docker-cred" , usernameVariable: "USER" , passwordVariable: "PASS")]){
                 sh "echo $PASS | docker login -u $USER --password-stdin"
