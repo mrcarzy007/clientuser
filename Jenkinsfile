@@ -13,9 +13,9 @@ pipeline{
 
         stage("Docker push"){
             steps {
-                withCreadentials([usernamePassword(creadentialsId: "docker-cred" , usernameVariable: "USER" , passwordVariable: "PASS")]){
+                withCredentials([usernamePassword(credentialsId: "docker-cred" , usernameVariable: "USER" , passwordVariable: "PASS")]){
                 sh "echo $PASS | docker login -u $USER --password-stdin"
-                sh "docker push devopsaditya123/v1"
+                sh "docker push devopsaditya123/clientapp:v1"
             }
 
             }
